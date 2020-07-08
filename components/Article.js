@@ -103,6 +103,7 @@ const data = [
 
   Your function should take either an object as its one argument, or 5 separate strings mapping to each property of an article object.
 
+
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
 
   Step 3: Don't forget to return something from your function!
@@ -111,3 +112,76 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+
+// <div class="article">
+// <h2>{title of the article}</h2>
+// <p class="date">{date of the article}</p>
+
+// {three separate paragraph elements}
+
+// <span class='expandButton'>+</span>
+// </div>
+
+function articleMaker(object){
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const pOne = document.createElement('p')
+  const pTwo = document.createElement('p')
+  const pThree = document.createElement('p')
+  const button = document.createElement('span')
+  const buttonStretch = document.createElement('span')
+
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(pOne)
+  article.appendChild(pTwo)
+  article.appendChild(pThree)
+  article.appendChild(button)
+  article.appendChild(buttonStretch)
+
+  article.className = 'article'
+  date.className = 'date'
+  button.className = 'expandButton'
+  buttonStretch.className = 'stretchButton'
+
+  title.textContent = object.title
+  date.textContent = object.date
+  pOne.textContent = object.firstParagraph
+  pTwo.textContent = object.secondParagraph
+  pThree.textContent = object.thirdParagraph
+  button.textContent = '+'
+  buttonStretch.textContent = 'READ'
+
+  // Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
+
+  button.addEventListener('click', () => {
+    article.classList.toggle('article-open')
+  })
+
+  buttonStretch.addEventListener('click', () => {
+    article.remove()
+  })
+
+  return article
+}
+
+data.push({
+  title: 'Charm Your Own Cheese',
+  date: 'Jan 1st, 2010',
+  firstParagraph: `Cheese, it's delicious, especially when charmed. Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed. `,
+
+  secondParagraph: `Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed. `,
+
+  thirdParagraph: `Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.`
+})
+
+
+const articleData = document.querySelector('.articles')
+
+data.forEach(object => {
+  articleData.appendChild(articleMaker(object))
+})
+
+// Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
