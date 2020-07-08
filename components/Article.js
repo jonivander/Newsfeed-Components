@@ -152,7 +152,7 @@ function articleMaker(object){
   pTwo.textContent = object.secondParagraph
   pThree.textContent = object.thirdParagraph
   button.textContent = '+'
-  buttonStretch.textContent = 'Read'
+  buttonStretch.textContent = 'READ'
 
   // Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
 
@@ -167,7 +167,16 @@ function articleMaker(object){
   return article
 }
 
-// Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
+data.push({
+  title: 'Charm Your Own Cheese',
+  date: 'Jan 1st, 2010',
+  firstParagraph: `Cheese, it's delicious, especially when charmed. Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed. `,
+
+  secondParagraph: `Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed. `,
+
+  thirdParagraph: `Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.Cheese, it's delicious, especially when charmed.`
+})
+
 
 const articleData = document.querySelector('.articles')
 

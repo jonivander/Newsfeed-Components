@@ -42,17 +42,28 @@ let menuItems = [
 
 
 function menuMaker(array){
-  const menu = document.createElement('div')
-  const uList = document.createElement('ul')
-  const listItem = document.createElement('li')
+  const menu = document.createElement('div');
+  const uList = document.createElement('ul');
+  const menuButton = document.querySelector('.menu-button');
 
-  menu.appendChild(uList)
-
+  menu.appendChild(uList);
+  menu.className = 'menu';
+  
   array.forEach(element => {
+    const listItem = document.createElement('li');
     listItem.textContent = element
     uList.appendChild(listItem)
   });
 
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('menu--open')
+  });
+
 return menu
 }
+
+const header = document.querySelector('.header');
+header.append(menuMaker(menuItems));
+
+
 
